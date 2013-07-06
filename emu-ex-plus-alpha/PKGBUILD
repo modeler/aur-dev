@@ -1,0 +1,38 @@
+# Maintainer: Modeler <dantootill at gmail dot com>
+
+pkgname=emu-ex-plus-alpha
+_gitname=emu-ex-plus-alpha
+pkgver=2013.07.06
+pkgrel=1
+pkgdesc="Multi-system emulation framework"
+arch=('x86_64')
+url="https://code.google.com/p/emu-ex-plus-alpha"
+license=('GPL')
+makedepends=('git boost minizip')
+md5sums=('SKIP')
+
+build() {
+  #git clone $url
+  cd $_gitname
+  export IMAGINE_PATH=$srcdir/$_gitname/imagine
+  for n in 2600.emu GBA.emu GBC.emu MD.emu MSX.emu NEO.emu NES.emu NGP.emu PCE.emu Snes9x; do
+    echo "Building $n."
+    cd $srcdir/$_gitname/$n
+    make -f linux-x86_64-release.mk
+  done
+   
+}
+
+package()
+{
+  install -D "$srcdir/$_gitname/2600.emu/target/linux/2600emu" "$pkgdir/usr/bin"
+  install -D "$srcdir/$_gitname/GBA.emu/target/linux/gbaemu" "$pkgdir/usr/bin"
+  install -D "$srcdir/$_gitname/GBC.emu/target/linux/gbcemu" "$pkgdir/usr/bin"
+  install -D "$srcdir/$_gitname/MD.emu/target/linux/mdemu" "$pkgdir/usr/bin"
+  install -D "$srcdir/$_gitname/MSX.emu/target/linux/msxemu" "$pkgdir/usr/bin"
+  install -D "$srcdir/$_gitname/NEO.emu/target/linux/neoemu" "$pkgdir/usr/bin"
+  install -D "$srcdir/$_gitname/NES.emu/target/linux/nesemu" "$pkgdir/usr/bin"
+  install -D "$srcdir/$_gitname/NGP.emu/target/linux/ngpemu" "$pkgdir/usr/bin"
+  install -D "$srcdir/$_gitname/PCE.emu/target/linux/pceemu" "$pkgdir/usr/bin"
+  install -D "$srcdir/$_gitname/Snes9x/target/linux/s9xp" "$pkgdir/usr/bin"
+}
