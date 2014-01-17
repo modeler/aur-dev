@@ -1,0 +1,29 @@
+# Maintainer: Modeler <dantootill at gmail dot com>
+
+pkgname=airsynth-git
+_gitname=airsynth
+pkgver=2013.11.10_aa0d359
+pkgrel=1
+pkgdesc="Video player implemented in libretro."
+arch=('i686' 'x86_64' 'arm' 'armv6h')
+url="https://github.com/Themaister/airsynth"
+license=('custom')
+makedepends=('git')
+#depends=('')
+source=('git://github.com/Themaister/airsynth.git')
+md5sums=('SKIP')
+
+pkgver() {
+  cd $_gitname
+  echo "$(git log -1 --format="%cd" --date=short | sed 's|-|.|g')_$(git describe --always | sed 's/-/_/g')"
+}
+
+build() {
+  cd $_gitname
+  make
+}
+
+package()
+{
+  install -Dm755 "$srcdir/$_gitname/airsynth" "$pkgdir/usr/bin/airsynth"
+}
