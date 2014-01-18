@@ -13,12 +13,14 @@ md5sums=('f66dbbc6bc79b401f2b4a197551b48b2')
 
 build() {
 #. /etc/profile.d/qt3.sh
+patch $srcdir/$pkgname/.kdev4/xsidplay.kdev4 ../xsidplay.kdev4.patch
+patch $srcdir/$pkgname/CMakeLists.txt ../CMakeLists.txt.patch
 cd $srcdir/$pkgname
 ./compile.sh
-make || return 1
-make install DESTDIR=$pkgdir
-install -Dm644 xsidplay.xpm $pkgdir/usr/share/pixmaps/xsidplay.xpm
-install -Dm644 xsidplay.desktop $pkgdir/usr/share/applications/xsidplay.desktop
+#make || return 1
+#make install DESTDIR=$pkgdir
+#install -Dm644 xsidplay.xpm $pkgdir/usr/share/pixmaps/xsidplay.xpm
+#install -Dm644 xsidplay.desktop $pkgdir/usr/share/applications/xsidplay.desktop
 }
 
 
