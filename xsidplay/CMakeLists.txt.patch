@@ -1,0 +1,4 @@
+119c119
+< include (/usr/share/cmake/Modules/CheckFunctionExists.cmake)
+---
+> include (/usr/share/cmake-2.8/Modules/CheckFunctionExists.cmake)

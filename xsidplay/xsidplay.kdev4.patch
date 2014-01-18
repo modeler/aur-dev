@@ -1,0 +1,4 @@
+6c6
+< CMakeDir=/usr/share/cmake/Modules
+---
+> CMakeDir=/usr/share/cmake-2.8/Modules
