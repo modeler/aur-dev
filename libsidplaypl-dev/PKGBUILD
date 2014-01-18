@@ -1,0 +1,23 @@
+# Maintainer: Modeler <dantootill at gmail dot com>
+z
+pkgname=libsidplayfp
+pkgver=1.2.2
+pkgrel=1
+pkgdesc="A library to play Commodore 64 music derived from libsidplay2"
+arch=('i686' 'x86_64')
+url="http://sourceforge.net/projects/sidplay-residfp"
+license=('GPL')
+#depends=()
+source=("http://sourceforge.net/projects/sidplay-residfp/files/libsidplayfp/1.2/${pkgname}-${pkgver}.tar.gz")
+md5sums=('SKIP')
+
+build() {
+cd $srcdir/$pkgname-$pkgver
+./configure
+make
+}
+
+package() {
+cd $srcdir/$pkgname-$pkgver
+make DESTDIR=$pkgdir install
+}
