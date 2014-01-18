@@ -7,7 +7,8 @@ pkgdesc="QT fronted for libsidplay"
 arch=('i686' 'x86_64')
 url="http://sourceforge.net/projects/xsidplay2"
 license=('GPL')
-depends=('alsa-lib' 'libsidplay' 'qt3' 'sdl')
+depends=('alsa-lib' 'libsidplay' 'qt4' 'sdl')
+makedepends=('cmake' 'automoc4')
 source=("http://downloads.sourceforge.net/xsidplay2/${pkgname}-${pkgver}.tar.gz")
 md5sums=('f66dbbc6bc79b401f2b4a197551b48b2')
 
