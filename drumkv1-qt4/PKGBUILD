@@ -1,0 +1,25 @@
+# Maintainer: Modeler <dantootill at gmail dot com>
+
+pkgname=drumkv1-qt4
+_pkgname=drumkv1
+pkgver=0.4.1
+pkgrel=1
+pkgdesc="Video player implemented in libretro."
+arch=('i686' 'x86_64')
+url="http://drumkv1.sourceforge.net/drumkv1-index.html"
+license=('GPL')
+depends=('qt4 jack')
+source=('http://download.sourceforge.net/drumkv1/drumkv1-0.4.1.tar.gz')
+md5sums=('48b092e94a4fbf8e8e51bd02d39ed348')
+
+build() {
+	cd "${srcdir}/${_pkgname}-${pkgver}"
+	./configure --prefix=/usr
+	make
+}
+
+package()
+{
+	cd "${srcdir}/${_pkgname}-${pkgver}"
+	make DESTDIR="${pkgdir}" install
+}
