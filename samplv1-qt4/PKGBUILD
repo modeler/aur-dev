@@ -1,16 +1,16 @@
 # Maintainer: Modeler <dantootill at gmail dot com>
 
-pkgname=drumkv1-qt4
-_pkgname=drumkv1
+pkgname=samplv1-qt4
+_pkgname=samplv1
 pkgver=0.4.1
 pkgrel=1
-pkgdesc="An old-school all-digital drum-kit sampler."
+pkgdesc="An old-school polyphonic sampler."
 arch=('i686' 'x86_64')
-url="http://drumkv1.sourceforge.net/drumkv1-index.html"
+url="http://samplv1.sourceforge.net/samplv1-index.html"
 license=('GPL')
 depends=('qt4' 'jack')
-source=('http://download.sourceforge.net/drumkv1/drumkv1-0.4.1.tar.gz')
-md5sums=('48b092e94a4fbf8e8e51bd02d39ed348')
+source=('http://download.sourceforge.net/samplv1/samplv1-0.4.1.tar.gz')
+md5sums=('77b94efe772f0f3bee7c6ccc67dacf8d')
 
 build() {
 	cd "${srcdir}/${_pkgname}-${pkgver}"
